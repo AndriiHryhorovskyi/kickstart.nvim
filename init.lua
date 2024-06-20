@@ -421,6 +421,7 @@ require('lazy').setup({
         css_variables = {},
         bashls = {},
         jsonls = {},
+        dockerls = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
