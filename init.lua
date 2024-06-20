@@ -419,6 +419,7 @@ require('lazy').setup({
         cssls = {},
         cssmodules_ls = {},
         css_variables = {},
+        bashls = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
