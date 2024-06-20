@@ -385,6 +385,14 @@ require('lazy').setup({
         end,
       })
 
+      -- This needs to gitlab_ci_ls correct work
+      vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+        pattern = '*.gitlab-ci*.{yml,yaml}',
+        callback = function()
+          vim.bo.filetype = 'yaml.gitlab'
+        end,
+      })
+
       -- LSP servers and clients are able to communicate to each other what features they support.
       --  By default, Neovim doesn't support everything that is in the LSP specification.
       --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
@@ -425,6 +433,7 @@ require('lazy').setup({
         docker_compose_language_service = {},
         yamlls = {},
         lemminx = {},
+        gitlab_ci_ls = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
