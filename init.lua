@@ -424,6 +424,7 @@ require('lazy').setup({
         dockerls = {},
         docker_compose_language_service = {},
         yamlls = {},
+        lemminx = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
