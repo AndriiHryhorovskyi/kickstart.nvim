@@ -423,6 +423,7 @@ require('lazy').setup({
         jsonls = {},
         dockerls = {},
         docker_compose_language_service = {},
+        yamlls = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
