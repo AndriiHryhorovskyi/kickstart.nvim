@@ -420,6 +420,7 @@ require('lazy').setup({
         cssmodules_ls = {},
         css_variables = {},
         bashls = {},
+        jsonls = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
