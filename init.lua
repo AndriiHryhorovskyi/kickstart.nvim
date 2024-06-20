@@ -415,6 +415,7 @@ require('lazy').setup({
         tsserver = {},
         marksman = {},
         html = {},
+        htmx = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
