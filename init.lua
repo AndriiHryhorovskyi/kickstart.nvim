@@ -416,6 +416,9 @@ require('lazy').setup({
         marksman = {},
         html = {},
         htmx = {},
+        cssls = {},
+        cssmodules_ls = {},
+        css_variables = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
