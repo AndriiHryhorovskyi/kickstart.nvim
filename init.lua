@@ -697,6 +697,10 @@ require('lazy').setup({
             i = {
               ['<C-j>'] = require('telescope.actions').preview_scrolling_down,
               ['<C-k>'] = require('telescope.actions').preview_scrolling_up,
+              ['<C-s>'] = require('telescope.actions').file_split,
+            },
+            n = {
+              ['<C-s>'] = require('telescope.actions').file_split,
             },
           },
         },
@@ -900,7 +904,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
