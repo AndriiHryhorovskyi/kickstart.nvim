@@ -685,7 +685,7 @@ require('lazy').setup({
         },
       },
       'saadparwaiz1/cmp_luasnip',
-
+      'onsails/lspkind.nvim',
       -- Adds other completion capabilities.
       --  nvim-cmp does not ship with all sources by default. They are split
       --  into multiple repos for maintenance purposes.
@@ -697,6 +697,7 @@ require('lazy').setup({
       -- See `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
+      local lspkind = require 'lspkind'
       luasnip.config.setup {}
 
       cmp.setup {
@@ -717,6 +718,11 @@ require('lazy').setup({
         },
         experimental = {
           ghost_text = true,
+        },
+        formatting = {
+          format = lspkind.cmp_format {
+            mode = 'symbol_text',
+          },
         },
 
         -- For an understanding of why these mappings were
