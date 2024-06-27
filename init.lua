@@ -705,7 +705,19 @@ require('lazy').setup({
             luasnip.lsp_expand(args.body)
           end,
         },
-        completion = { completeopt = 'menu,menuone,noinsert' },
+        completion = { completeopt = 'menu,menuone,noinsert,preview' },
+        view = {
+          entries = { name = 'custom', selection_order = 'near_cursor', follow_cursor = true },
+          docs = {
+            auto_open = true,
+          },
+        },
+        window = {
+          documentation = cmp.config.window.bordered(),
+        },
+        experimental = {
+          ghost_text = true,
+        },
 
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
