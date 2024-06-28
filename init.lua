@@ -438,6 +438,7 @@ require('lazy').setup({
         yamlls = {},
         lemminx = {},
         graphql = {},
+        prismals = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -503,6 +504,7 @@ require('lazy').setup({
         'lua',
         'luadoc',
         'graphql',
+        'prisma',
         'dockerfile',
         'yaml',
         'xml',
