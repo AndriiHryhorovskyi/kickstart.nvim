@@ -412,6 +412,20 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
+        lua_ls = {
+          -- cmd = {...},
+          -- filetypes = { ...},
+          -- capabilities = {},
+          settings = {
+            Lua = {
+              completion = {
+                callSnippet = 'Replace',
+              },
+              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+              -- diagnostics = { disable = { 'missing-fields' } },
+            },
+          },
+        },
         tsserver = {
           init_options = {
             preferences = {
@@ -441,20 +455,6 @@ require('lazy').setup({
         prismals = {},
         emmet_language_server = {},
         sqlls = {},
-        lua_ls = {
-          -- cmd = {...},
-          -- filetypes = { ...},
-          -- capabilities = {},
-          settings = {
-            Lua = {
-              completion = {
-                callSnippet = 'Replace',
-              },
-              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
-            },
-          },
-        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -481,6 +481,16 @@ require('lazy').setup({
         'xmlformatter',
 
         -- Linters
+        'eslint_d',
+        'markdownlint',
+        'htmlhint',
+        'stylelint',
+        'sqlfluff',
+        'hadolint',
+        'jsonlint',
+        'yamllint',
+        'vale',
+        'shellcheck',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -964,7 +974,7 @@ require('lazy').setup({
   --
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps

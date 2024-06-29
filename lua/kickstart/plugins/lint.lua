@@ -5,9 +5,23 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
-      lint.linters_by_ft = {
+      lint.linters_by_ft = vim.tbl_deep_extend('keep', lint.linters_by_ft or {}, {
+        javascript = { 'eslint_d' },
+        typescript = { 'eslint_d' },
         markdown = { 'markdownlint' },
-      }
+        html = { 'htmlhint' },
+        css = { 'stylelint' },
+        scss = { 'stylelint' },
+        sass = { 'stylelint' },
+        less = { 'stylelint' },
+        sql = { 'sqlfluff' },
+        dockerfile = { 'hadolint' },
+        json = { 'jsonlint' },
+        yaml = { 'yamllint' },
+        text = { 'vale' },
+        sh = { 'shellcheck' },
+        bash = { 'shellcheck' },
+      })
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:
