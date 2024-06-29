@@ -468,7 +468,12 @@ require('lazy').setup({
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
+        -- Formatters
+        'stylua',
+        'prettier',
+        'prettierd',
+
+        -- Linters
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -791,32 +796,43 @@ require('lazy').setup({
   },
 
   { -- Autoformat
+
     'stevearc/conform.nvim',
     lazy = false,
     keys = {
       {
         '<leader>f',
         function()
-          require('conform').format { async = true, lsp_fallback = true }
+          require('conform').format { async = false, lsp_format = 'fallback' }
         end,
-        mode = '',
+        mode = { 'n', 'v' },
         desc = '[F]ormat buffer',
       },
     },
     opts = {
       notify_on_error = false,
-      format_on_save = function(bufnr)
-        -- Disable "format_on_save lsp_fallback" for languages that don't
-        -- have a well standardized coding style. You can add additional
-        -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true }
-        return {
-          timeout_ms = 500,
-          lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
-        }
-      end,
+      format_on_save = nil,
+      format_after_save = nil,
       formatters_by_ft = {
         lua = { 'stylua' },
+        javascript = { {'prettierd', 'prettier' } },
+        typescript = { {'prettierd', 'prettier' } },
+        javascriptreact = { {'prettierd', 'prettier' } },
+        typescriptreact = { {'prettierd', 'prettier' } },
+        vue = { {'prettierd', 'prettier' } },
+        json = { {'prettierd', 'prettier' } },
+        graphql = { {'prettierd', 'prettier' } },
+        markdown = { {'prettierd', 'prettier' } },
+        yaml = { {'prettierd', 'prettier' } },
+        html = { {'prettierd', 'prettier' } },
+        css = { {'prettierd', 'prettier' } },
+        scss = { {'prettierd', 'prettier' } },
+        handlebars = { {'prettierd', 'prettier' } },
+        -- sh = { { 'shellcheck' } },
+        -- bash = { 'beautysh' },
+        -- toml = { 'taplo' },
+        -- java = { 'google-java-format' },
+        --
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
