@@ -814,7 +814,6 @@ require('lazy').setup({
   },
 
   { -- Autoformat
-
     'stevearc/conform.nvim',
     lazy = false,
     keys = {
@@ -863,6 +862,8 @@ require('lazy').setup({
     },
   },
 
+  { 'numToStr/Comment.nvim', opts = {} },
+
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
@@ -906,7 +907,6 @@ require('lazy').setup({
 
   -- Use `opts = {}` to force a plugin to be loaded.
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
 
   -- See `:help gitsigns` to understand what the configuration keys do
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
