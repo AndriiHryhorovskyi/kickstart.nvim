@@ -862,6 +862,8 @@ require('lazy').setup({
     },
   },
 
+
+  -- Use `opts = {}` to force a plugin to be loaded.
   -- Examples:
   --  - gcc  - Toggles the current line using linewise comment
   --  - gc{motion} - Toggles the region using linewise comment
@@ -921,11 +923,13 @@ require('lazy').setup({
     },
   },
 
+  {
+    'windwp/nvim-ts-autotag',
+    config = true,
+  },
+
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-
-  -- Use `opts = {}` to force a plugin to be loaded.
-  -- "gc" to comment visual regions/lines
 
   -- See `:help gitsigns` to understand what the configuration keys do
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
