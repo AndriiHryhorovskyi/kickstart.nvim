@@ -862,7 +862,6 @@ require('lazy').setup({
     },
   },
 
-
   -- Use `opts = {}` to force a plugin to be loaded.
   -- Examples:
   --  - gcc  - Toggles the current line using linewise comment
@@ -919,12 +918,42 @@ require('lazy').setup({
     config = true,
   },
 
+  {
+    'folke/flash.nvim',
+    event = 'VeryLazy',
+    opts = {
+
+      jump = {
+        -- automatically jump when there is only one match
+        autojump = true,
+      },
+      modes = {
+        -- options used when flash is activated through
+        -- a regular search with `/` or `?`
+        search = {
+          -- when `true`, flash will be activated during regular search by default.
+          -- You can always toggle when searching with `require("flash").toggle()`
+          enabled = false,
+        },
+        -- options used when flash is activated through
+        -- `f`, `F`, `t`, `T`, `;` and `,` motions
+        char = {
+          enabled = false,
+        },
+      },
+    },
+  -- stylua: ignore
+    keys = {
+      { "<leader>f", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash [F]ind" },
+      { "<leader>t", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash [T]reesitter" },
+    },
+  },
+
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
-
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
