@@ -939,6 +939,7 @@ require('lazy').setup({
 
   {
     'stevearc/oil.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       local detail = false
       require('oil').setup {
@@ -988,12 +989,10 @@ require('lazy').setup({
           show_hidden = true,
         },
       }
-      -- Open parent directory in current window
-      vim.keymap.set('n', '<leader>-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
-      -- Open parent directory in floating window
-      vim.keymap.set('n', '<leader>_', require('oil').toggle_float, { desc = 'Open parent directory' })
     end,
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    keys = {
+      { '<leader>-', '<CMD>Oil<CR>', desc = '[] Open file explorer', mode = { 'n' } },
+    },
   },
 
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
