@@ -919,33 +919,21 @@ require('lazy').setup({
   },
 
   {
-    'folke/flash.nvim',
-    event = 'VeryLazy',
+    'smoka7/hop.nvim',
+    version = '*',
     opts = {
-
-      jump = {
-        -- automatically jump when there is only one match
-        autojump = true,
-      },
-      modes = {
-        -- options used when flash is activated through
-        -- a regular search with `/` or `?`
-        search = {
-          -- when `true`, flash will be activated during regular search by default.
-          -- You can always toggle when searching with `require("flash").toggle()`
-          enabled = false,
-        },
-        -- options used when flash is activated through
-        -- `f`, `F`, `t`, `T`, `;` and `,` motions
-        char = {
-          enabled = false,
-        },
-      },
+      keys = 'etovxqpdygfblzhckisuran',
+      multi_windows = true,
     },
-  -- stylua: ignore
     keys = {
-      { "<leader>f", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash [F]ind" },
-      { "<leader>t", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash [T]reesitter" },
+      {
+        '<leader>f',
+        mode = { 'n' },
+        function()
+          require('hop').hint_char1()
+        end,
+        desc = 'Hop [F]ind',
+      },
     },
   },
 
