@@ -818,12 +818,12 @@ require('lazy').setup({
     lazy = false,
     keys = {
       {
-        '<leader>f',
+        '<leader>\\',
         function()
           require('conform').format { async = false, lsp_format = 'fallback' }
         end,
         mode = { 'n', 'v' },
-        desc = '[F]ormat buffer',
+        desc = '[] Format buffer',
       },
     },
     opts = {
