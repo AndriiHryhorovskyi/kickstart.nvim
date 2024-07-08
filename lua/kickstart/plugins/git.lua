@@ -82,5 +82,15 @@ return {
       -- Disable line numbers and relative line numbers
       disable_line_numbers = false,
     },
+    keys = {
+      {
+        '<leader>gs',
+        function()
+          require('neogit').open()
+        end,
+        mode = { 'n' },
+        desc = '[G]it [S]tatus',
+      },
+    },
   },
 }
