@@ -743,7 +743,7 @@ require('lazy').setup({
           documentation = cmp.config.window.bordered(),
         },
         experimental = {
-          ghost_text = true,
+          ghost_text = false,
         },
         formatting = {
           format = lspkind.cmp_format {
