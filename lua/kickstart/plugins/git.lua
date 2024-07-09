@@ -81,6 +81,12 @@ return {
       graph_style = 'unicode',
       -- Disable line numbers and relative line numbers
       disable_line_numbers = false,
+      mappings = {
+        status = {
+          ['<c-S>'] = 'StageAll',
+          ['<c-s>'] = 'SplitOpen',
+        },
+      },
     },
 
     keys = {
@@ -194,7 +200,7 @@ return {
       {
         '<leader>glB',
         function()
-          require('neogit').action('log', 'log_other', {'--decorate' })()
+          require('neogit').action('log', 'log_other', { '--decorate' })()
         end,
         desc = '[G]it [l]og a [B]ranch',
       },
