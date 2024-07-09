@@ -82,6 +82,7 @@ return {
       -- Disable line numbers and relative line numbers
       disable_line_numbers = false,
     },
+
     keys = {
       {
         '<leader>gs',
@@ -89,7 +90,120 @@ return {
           require('neogit').open()
         end,
         mode = { 'n' },
-        desc = '[G]it [S]tatus',
+        desc = '[G]it [s]tatus',
+      },
+      {
+        '<leader>gSp',
+        '<CMD>!git stash -u -q<CR><CR>',
+        mode = { 'n' },
+        desc = '[G]it [S]stash [p]ush',
+      },
+      {
+        '<leader>gSP',
+        '<CMD>!git stash pop -q<CR><CR>',
+        mode = { 'n' },
+        desc = '[G]it [S]stash [P]op',
+      },
+      {
+        '<leader>gca',
+        function()
+          vim.cmd 'silent !git add -A'
+          require('neogit').action('commit', 'commit', { '--verbose' })()
+        end,
+        mode = { 'n' },
+        desc = '[G]it [c]ommit [a]ll ',
+      },
+      {
+        '<leader>gcA',
+        function()
+          vim.cmd 'silent !git add -A'
+          require('neogit').action('commit', 'amend', { '--verbose' })()
+        end,
+        mode = { 'n' },
+        desc = '[G]it [c]ommit [A]mend',
+      },
+      {
+        '<leader>gf',
+        function()
+          require('neogit').action('fetch', 'fetch_pushremote')()
+        end,
+        mode = { 'n' },
+        desc = '[G]it [f]etch',
+      },
+      {
+        '<leader>gbc',
+        function()
+          local reloadGroup = vim.api.nvim_create_augroup('refresh', { clear = true })
+          vim.api.nvim_create_autocmd({ 'User' }, {
+            pattern = 'NeogitBranchCheckout',
+            group = reloadGroup,
+            desc = 'Refresh current buffer after checkout branch',
+            callback = function()
+              vim.cmd.checkt()
+              vim.api.nvim_clear_autocmds { group = reloadGroup }
+            end,
+          })
+          require('neogit').action('branch', 'checkout_local_branch')()
+        end,
+        mode = { 'n' },
+        desc = '[G]it [b]ranch chechout',
+      },
+      {
+        '<leader>gp',
+        function()
+          require('neogit').action('pull', 'from_upstream')()
+        end,
+        mode = { 'n' },
+        desc = '[G]it [p]ull',
+      },
+      {
+        '<leader>gP',
+        function()
+          require('neogit').action('push', 'to_upstream')()
+        end,
+        mode = { 'n' },
+        desc = '[G]it [p]ush',
+      },
+      {
+        '<leader>gl',
+        function()
+          local file = vim.fn.expand '%'
+          vim.cmd [[execute "normal! \<ESC>"]]
+          local line_start = vim.fn.getpos("'<")[2]
+          local line_end = vim.fn.getpos("'>")[2]
+          require('neogit').action('log', 'log_current', { '-L' .. line_start .. ',' .. line_end .. ':' .. file })()
+        end,
+        desc = '[G]it [l]og for line range',
+        mode = 'v',
+      },
+      {
+        '<leader>glf',
+        function()
+          local file = vim.fn.expand '%'
+          require('neogit').action('log', 'log_current', { '--graph', '--decorate', '--', file })()
+        end,
+        desc = '[G]it [l]og current [f]ile',
+      },
+      {
+        '<leader>glb',
+        function()
+          require('neogit').action('log', 'log_current', { '--decorate' })()
+        end,
+        desc = '[G]it [l]og current [b]ranch',
+      },
+      {
+        '<leader>glB',
+        function()
+          require('neogit').action('log', 'log_other', {'--decorate' })()
+        end,
+        desc = '[G]it [l]og a [B]ranch',
+      },
+      {
+        '<leader>gL',
+        function()
+          require('neogit').action('log', 'log_all_references', { '--graph', '--decorate' })()
+        end,
+        desc = '[G]it [L]og all branches',
       },
     },
   },
