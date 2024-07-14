@@ -1070,6 +1070,28 @@ require('lazy').setup({
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   -- { import = 'custom.plugins' },
+
+  -- firenvim
+  {
+    'glacambre/firenvim',
+
+    -- Lazy load firenvim
+    -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
+    lazy = not vim.g.started_by_firenvim,
+    build = function()
+      vim.fn['firenvim#install'](0)
+    end,
+    config = function()
+      vim.g.firenvim_config = {
+        localSettings = {
+          ['.*'] = {
+            cmdline = 'neovim',
+            takeover = 'never',
+          },
+        },
+      } -- code
+    end,
+  },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
