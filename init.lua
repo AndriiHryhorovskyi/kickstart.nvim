@@ -1027,25 +1027,20 @@ require('lazy').setup({
 
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
-    config = function() -- This is the function that runs, AFTER loading
-      require('which-key').setup()
-
-      -- Document existing key chains
-      require('which-key').register {
-        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-        ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-        ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-      }
-      -- visual mode
-      require('which-key').register({
-        ['<leader>h'] = { 'Git [H]unk' },
-      }, { mode = 'v' })
-    end,
+    opts = {
+      spec = {
+        { '<leader>g', group = '[G]it actions' },
+        { '<leader>gc', group = '[G]it [c]ommit actions' },
+        { '<leader>gl', group = '[G]it [l]og actions' },
+        { '<leader>gS', group = '[G]it [S]tash actions' },
+        { '<leader>h', group = 'Git [H]unk' },
+        { '<leader>h', group = 'Git [H]unk', mode = 'v' },
+        { '<leader>s', group = 'Lazy [S]earch' },
+        { '<leader>t', group = '[T]oggle' },
+      },
+    },
   },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
