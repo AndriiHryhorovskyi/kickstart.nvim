@@ -39,6 +39,9 @@ return {
         },
         -- Skip the confirmation popup for simple operations (:help oil.skip_confirm_for_simple_edits)
         skip_confirm_for_simple_edits = true,
+        -- Selecting a new/moved/renamed file or directory will prompt you to save changes first
+        -- (:help prompt_save_on_select_new_entry)
+        prompt_save_on_select_new_entry = false,
         -- Keymaps in oil buffer. Can be any value that `vim.keymap.set` accepts OR a table of keymap
         -- options with a `callback` (e.g. { callback = function() ... end, desc = "", mode = "n" })
         -- Additionally, if it is a string that matches "actions.<name>",
@@ -77,6 +80,10 @@ return {
         view_options = {
           -- Show files and directories that start with "."
           show_hidden = true,
+          -- This function defines what will never be shown, even when `show_hidden` is set
+          is_always_hidden = function(name, bufnr)
+            return name == '.' or name == '..'
+          end,
         },
       }
     end,
