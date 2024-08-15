@@ -4,12 +4,12 @@ return {
   lazy = false,
   keys = {
     {
-      '<leader>\\',
+      '<leader>cf',
       function()
         require('conform').format { async = false, lsp_format = 'fallback' }
       end,
       mode = { 'n', 'v' },
-      desc = '[] Format buffer',
+      desc = '[F]ormat buffer',
     },
   },
   opts = {
