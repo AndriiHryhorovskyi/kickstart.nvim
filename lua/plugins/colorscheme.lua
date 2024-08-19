@@ -13,6 +13,18 @@ return { -- You can easily change to a different colorscheme.
         -- fg = colors.yellow,
         fg = '#b2b8cf',
       }
+      hl.LineNrAbove = {
+        -- fg = colors.yellow,
+        fg = '#b2b8cf',
+      }
+      hl.LineNrBelow = {
+        -- fg = colors.yellow,
+        fg = '#b2b8cf',
+      }
+      hl.Whitespace = {
+        fg = '#b2b8cf',
+      }
+
     end,
   },
   init = function()
