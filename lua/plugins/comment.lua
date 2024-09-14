@@ -17,6 +17,7 @@ return { -- Use `opts = {}` to force a plugin to be loaded.
     opts = { signs = false },
     keys = {
       { '<leader>td', '<cmd>TodoLocList<cr>', desc = '[T]o [D]o list', mode = { 'n' } },
+      { '<leader>st', '<cmd>TodoTelescope<cr>', desc = '[S]earch [T]odo', mode = { 'n' } },
     },
   },
 }
