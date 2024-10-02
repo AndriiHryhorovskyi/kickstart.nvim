@@ -25,6 +25,7 @@ return {
     { 'ghassan0/telescope-glyph.nvim' },
     { 'AckslD/nvim-neoclip.lua' },
     { 'nvim-telescope/telescope-live-grep-args.nvim' },
+    { 'chip/telescope-software-licenses.nvim' },
   },
   config = function()
     -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -89,6 +90,7 @@ return {
     pcall(require('telescope').load_extension, 'ui-select')
     pcall(require('telescope').load_extension, 'glyph')
     pcall(require('telescope').load_extension, 'live_grep_args')
+    pcall(require('telescope').load_extension, 'software-licenses')
 
     require('neoclip').setup()
 
@@ -110,6 +112,7 @@ return {
     vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = '[S]earch existing [B]uffers' })
     vim.keymap.set('n', '<leader>se', '<cmd>Telescope glyph<CR>', { desc = '[S]earch [E]moji' })
     vim.keymap.set('n', '<leader>sy', '<cmd>Telescope neoclip<CR>', { desc = '[S]earch [Y]yanked text' })
+    vim.keymap.set('n', '<leader>sl', '<cmd>Telescope software-licenses find<CR>', { desc = '[s]earch software [l]licenses' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
