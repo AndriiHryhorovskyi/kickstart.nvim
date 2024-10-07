@@ -26,6 +26,7 @@ return {
     { 'AckslD/nvim-neoclip.lua' },
     { 'nvim-telescope/telescope-live-grep-args.nvim' },
     { 'chip/telescope-software-licenses.nvim' },
+    { 'benfowler/telescope-luasnip.nvim' },
   },
   config = function()
     -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -91,6 +92,7 @@ return {
     pcall(require('telescope').load_extension, 'glyph')
     pcall(require('telescope').load_extension, 'live_grep_args')
     pcall(require('telescope').load_extension, 'software-licenses')
+    pcall(require('telescope').load_extension, 'luasnip')
 
     require('neoclip').setup()
 
@@ -101,7 +103,7 @@ return {
     vim.keymap.set('n', '<leader>sf', function()
       builtin.find_files { hidden = true }
     end, { desc = '[s]earch [f]iles' })
-    vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[s]earch [s]elect Telescope' })
+    vim.keymap.set('n', '<leader>sp', builtin.builtin, { desc = '[s]earch telescope [p]icker' })
     vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[s]earch current [w]ord' })
     vim.keymap.set('n', '<leader>sg', function()
       require('telescope').extensions.live_grep_args.live_grep_args()
@@ -113,6 +115,7 @@ return {
     vim.keymap.set('n', '<leader>se', '<cmd>Telescope glyph<CR>', { desc = '[s]earch [e]moji' })
     vim.keymap.set('n', '<leader>sy', '<cmd>Telescope neoclip<CR>', { desc = '[s]earch [y]yanked text' })
     vim.keymap.set('n', '<leader>sl', '<cmd>Telescope software-licenses find<CR>', { desc = '[s]earch software [l]licenses' })
+    vim.keymap.set('n', '<leader>ss', '<cmd>Telescope luasnip<CR>', { desc = '[s]earch [s]nippet' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
