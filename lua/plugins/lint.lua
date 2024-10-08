@@ -5,7 +5,7 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
-      lint.linters_by_ft = vim.tbl_deep_extend('keep', lint.linters_by_ft or {}, {
+      lint.linters_by_ft = vim.tbl_deep_extend('force', lint.linters_by_ft or {}, {
         javascript = { 'eslint_d' },
         typescript = { 'eslint_d' },
         markdown = { 'markdownlint' },
@@ -18,7 +18,7 @@ return {
         dockerfile = { 'hadolint' },
         json = { 'jsonlint' },
         yaml = { 'yamllint' },
-        text = { 'vale' },
+        text = {},
         sh = { 'shellcheck' },
         bash = { 'shellcheck' },
       })

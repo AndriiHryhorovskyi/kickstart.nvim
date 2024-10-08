@@ -255,7 +255,6 @@ return {
         'hadolint',
         'jsonlint',
         'yamllint',
-        'vale',
         'shellcheck',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
