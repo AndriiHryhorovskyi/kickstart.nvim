@@ -1,0 +1,26 @@
+return {
+  'mistricky/codesnap.nvim',
+  build = 'make',
+  keys = {
+    { '<leader>cs', '<cmd><cr>', mode = 'v', desc = '[c]ode [s]napshot' },
+    { '<leader>csc', '<cmd>CodeSnap<cr>', mode = 'v', desc = '[c]ode make [s]napshot into [c]lipboard' },
+    { '<leader>csC', '<cmd>CodeSnapHighlight<cr>', mode = 'v', desc = '[c]ode make [s]napshot into [c]lipboard with highlight' },
+    { '<leader>css', '<cmd>CodeSnapSave<cr>', mode = 'v', desc = '[c]ode make [s]napshot and [s]ave file' },
+    { '<leader>csS', '<cmd>CodeSnapSaveHighlight<cr>', mode = 'v', desc = '[c]ode make [s]napshot and [s]ave file with highlight' },
+    { '<leader>csa', '<cmd>CodeSnapASCII<cr>', mode = 'v', desc = '[c]ode make [s]napshot [a]scii' },
+  },
+  opts = {
+    mac_window_bar = false,
+    title = 'CodeSnap',
+    -- code_font_family = 'CaskaydiaCove Nerd Font',
+    -- watermark_font_family = 'Pacifico',
+    watermark = '',
+    bg_theme = 'grape',
+    has_breadcrumbs = false,
+    has_line_number = true,
+    show_workspace = false,
+    -- bg_color = "#535c68",
+    bg_x_padding = 20,
+    bg_y_padding = 20,
+  },
+}
