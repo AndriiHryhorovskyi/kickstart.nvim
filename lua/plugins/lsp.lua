@@ -76,7 +76,7 @@ return {
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
-          map('gt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
+          map('gT', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
@@ -84,11 +84,11 @@ return {
           map('<leader>D', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
           -- Find references for the word under your cursor.
-          map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+          map('gR', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
-          map('gi', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+          map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
