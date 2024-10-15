@@ -112,6 +112,7 @@ return {
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[s]earch [R]esume' })
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[s]earch Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = '[s]earch existing [b]uffers' })
+    vim.keymap.set('n', '<leader>sm', builtin.marks, { desc = '[s]earch existing [m]arks' })
     vim.keymap.set('n', '<leader>se', '<cmd>Telescope glyph<CR>', { desc = '[s]earch [e]moji' })
     vim.keymap.set('n', '<leader>sy', '<cmd>Telescope neoclip<CR>', { desc = '[s]earch [y]yanked text' })
     vim.keymap.set('n', '<leader>sl', '<cmd>Telescope software-licenses find<CR>', { desc = '[s]earch software [l]licenses' })
