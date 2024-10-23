@@ -62,8 +62,8 @@ return {
           gitsigns.diffthis '@'
         end, { desc = 'git [h]unk [D]iff against last commit' })
 
-        map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[t]oggle git show [b]lame line' })
-        map('n', '<leader>tD', gitsigns.toggle_deleted, { desc = '[t]oggle git show [D]eleted' })
+        map('n', '<leader>gB', '', { desc = '[g]it [B]lame' })
+        map('n', '<leader>gBt', gitsigns.toggle_current_line_blame, { desc = '[g]it [B]lame [t]oggle' })
         map('n', '<leader>hl', gitsigns.setloclist, { desc = 'git [h]unk [l]ist' })
       end,
     },
