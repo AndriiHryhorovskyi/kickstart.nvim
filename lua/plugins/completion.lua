@@ -63,9 +63,17 @@ return {
         ghost_text = false,
       },
       formatting = {
-        format = lspkind.cmp_format {
-          mode = 'symbol_text',
-        },
+        format = function(entry, item)
+          local color_item = require('nvim-highlight-colors').format(entry, { kind = item.kind })
+          item = lspkind.cmp_format {
+            mode = 'symbol_text',
+          }(entry, item)
+          if color_item.abbr_hl_group then
+            item.kind_hl_group = color_item.abbr_hl_group
+            item.kind = color_item.abbr
+          end
+          return item
+        end,
       },
 
       -- For an understanding of why these mappings were

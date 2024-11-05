@@ -115,7 +115,7 @@ return {
     vim.keymap.set('n', '<leader>sm', builtin.marks, { desc = '[s]earch existing [m]arks' })
     vim.keymap.set('n', '<leader>se', '<cmd>Telescope glyph<CR>', { desc = '[s]earch [e]moji' })
     vim.keymap.set('n', '<leader>sy', '<cmd>Telescope neoclip<CR>', { desc = '[s]earch [y]yanked text' })
-    vim.keymap.set('n', '<leader>sl', '<cmd>Telescope software-licenses find<CR>', { desc = '[s]earch software [l]licenses' })
+    vim.keymap.set('n', '<leader>sl', '<cmd>Telescope software-licenses find<CR>', { desc = '[s]earch software [l]icenses' })
     vim.keymap.set('n', '<leader>ss', '<cmd>Telescope luasnip<CR>', { desc = '[s]earch [s]nippet' })
 
     -- Slightly advanced example of overriding default behavior and theme
