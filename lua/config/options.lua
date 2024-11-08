@@ -51,7 +51,7 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', --[[ space = '·'  ]]}
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -76,3 +76,6 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 0
 -- vim.opt.expandtab = true
+
+-- Set terminal tab title
+vim.opt.title = true
