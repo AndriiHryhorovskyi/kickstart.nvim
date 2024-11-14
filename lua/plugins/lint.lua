@@ -8,7 +8,7 @@ return {
       lint.linters_by_ft = vim.tbl_deep_extend('force', lint.linters_by_ft or {}, {
         javascript = { 'eslint_d' },
         typescript = { 'eslint_d' },
-        markdown = { 'markdownlint' },
+        markdown = {},
         html = { 'htmlhint' },
         css = { 'stylelint' },
         scss = { 'stylelint' },

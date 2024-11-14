@@ -248,7 +248,6 @@ return {
 
         -- Linters
         'eslint_d',
-        'markdownlint',
         'htmlhint',
         'stylelint',
         'sqlfluff',
