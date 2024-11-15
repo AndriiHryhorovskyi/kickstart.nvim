@@ -28,6 +28,7 @@ return {
       'sql',
       'regex',
       'query',
+      'latex',
     },
     -- Autoinstall languages that are not installed
     auto_install = true,
@@ -55,18 +56,18 @@ return {
         lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
         keymaps = {
           -- You can use the capture groups defined in textobjects.scm
-          ['ac']  = { query = '@class.outer', desc = 'around [c]lass'},
-          ['ic']  = { query = '@class.inner', desc = 'inner [c]lass'},
-          ['am']  = { query = '@function.outer', desc = 'around [m]ethod'},
-          ['im']  = { query = '@function.inner', desc = 'inner [m]ethod'},
-          ['af']  = { query = '@call.outer', desc = 'around [f]unction call'},
-          ['if']  = { query = '@call.inner', desc = 'inner [f]unction call'},
-          ['aa']  = { query = '@parameter.outer', desc = 'around [a]rguments'},
-          ['ia']  = { query = '@parameter.inner', desc = 'inner arguments'},
-          ['i#']  = { query = '@conditional.inner', desc = 'inner conditional block'},
-          ['a#']  = { query = '@conditional.outer', desc = 'around conditional block'},
-          ['i=']  = { query = '@assignment.inner', desc = 'inner assignment'},
-          ['a=']  = { query = '@assignment.outer', desc = 'around assignment'},
+          ['ac'] = { query = '@class.outer', desc = 'around [c]lass' },
+          ['ic'] = { query = '@class.inner', desc = 'inner [c]lass' },
+          ['am'] = { query = '@function.outer', desc = 'around [m]ethod' },
+          ['im'] = { query = '@function.inner', desc = 'inner [m]ethod' },
+          ['af'] = { query = '@call.outer', desc = 'around [f]unction call' },
+          ['if'] = { query = '@call.inner', desc = 'inner [f]unction call' },
+          ['aa'] = { query = '@parameter.outer', desc = 'around [a]rguments' },
+          ['ia'] = { query = '@parameter.inner', desc = 'inner arguments' },
+          ['i#'] = { query = '@conditional.inner', desc = 'inner conditional block' },
+          ['a#'] = { query = '@conditional.outer', desc = 'around conditional block' },
+          ['i='] = { query = '@assignment.inner', desc = 'inner assignment' },
+          ['a='] = { query = '@assignment.outer', desc = 'around assignment' },
         },
       },
       move = {
