@@ -60,8 +60,16 @@ return {
       toc_format = '%s- [%s](<%s#%s>)',
     },
     keys = {
-      { '<leader>mtc', '<cmd>GenerateTOC<cr>', mode = 'n', desc = '[m]arkdown [t]OC [c]reate' },
-      { '<leader>mtd', '<cmd>DeleteTOC<cr>', mode = 'n', desc = '[m]arkdown [T]OC [d]elete' },
+      { '<leader>mtc', '<cmd>GenerateTOC<cr>', mode = 'n', desc = '[m]arkdown [t]oc [c]reate' },
+      { '<leader>mtd', '<cmd>DeleteTOC<cr>', mode = 'n', desc = '[m]arkdown [t]oc [d]elete' },
+    },
+  },
+  {
+    'AckslD/nvim-FeMaco.lua',
+    ft = { 'markdown' },
+    opts = {},
+    keys = {
+      { '<leader>mce', '<cmd>FeMaco<cr>', mode = 'n', desc = '[m]arkdown [c]ode [e]dit' },
     },
   },
 }
