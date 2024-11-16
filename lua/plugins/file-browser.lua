@@ -76,6 +76,18 @@ return {
               end
             end,
           },
+          ['gyy'] = {
+            callback = function()
+              local entry = require('oil').get_cursor_entry()
+              local dir = require('oil').get_current_dir()
+              if not entry or not dir then
+                return
+              end
+              local fullPath = dir .. '/' .. entry.name
+              vim.fn.setreg('"', fullPath)
+            end,
+            desc = 'Copy file path to clipboard',
+          },
         },
         view_options = {
           -- Show files and directories that start with "."
