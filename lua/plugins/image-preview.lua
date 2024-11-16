@@ -109,9 +109,17 @@ return {
             img:render()
           end)
         elseif isImageFile(location) then
-          local absolutePath = vim.fn.resolve(vim.fn.fnamemodify(location, ':p'))
+          local absolutePath = ''
+          if string.match(location, '^%.%./') or string.match(location, '^%./') then
+            local currentBuffPath = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf())
+            absolutePath = vim.fn.resolve(vim.fn.fnamemodify(currentBuffPath, ':p:h') .. '/./' .. location)
+          elseif string.match(location, '^/') then
+            absolutePath = location
+          else
+            absolutePath = vim.fn.fnamemodify(location, ':p')
+          end
           if vim.fn.filereadable(absolutePath) == 0 then
-            vim.api.nvim_buf_set_lines(popup.bufnr, 0, 1, false, { 'THE FILE NOT FOUND' })
+            vim.api.nvim_buf_set_lines(popup.bufnr, 0, 1, false, { 'THE FILE NOT FOUND: ' .. absolutePath })
           else
             image = imageAPI.from_file(absolutePath, {
               window = popup.winid,
@@ -124,14 +132,26 @@ return {
           return
         end
 
+        local function closePreviewWindow()
+          if image ~= nil then
+            image:clear()
+          end
+          popup:unmount()
+        end
+
+        popup:on('BufLeave', function()
+          closePreviewWindow()
+        end, { once = true })
+
+        popup:map('n', '<esc>', function()
+          closePreviewWindow()
+        end, { noremap = true })
+
         vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI', 'ModeChanged' }, {
           buffer = 0,
           once = true,
           group = vim.api.nvim_create_augroup('preview_image', { clear = true }),
-          callback = function()
-            image:clear()
-            popup:unmount()
-          end,
+          callback = closePreviewWindow,
         })
       end
 
