@@ -44,4 +44,24 @@ return {
       { '<leader>mr', '<cmd>RenderMarkdown toggle<cr>', mode = 'n', desc = '[m]arkdown [r]render toggle' },
     },
   },
+  {
+    'ChuufMaster/markdown-toc',
+    ft = { 'markdown' },
+    opts = {
+
+      -- The heading level to match (i.e the number of "#"s to match to) max 6
+      heading_level_to_match = -1,
+
+      -- Set to True display a dropdown to allow you to select the heading level
+      ask_for_heading_level = false,
+
+      -- TOC default string
+      -- WARN
+      toc_format = '%s- [%s](<%s#%s>)',
+    },
+    keys = {
+      { '<leader>mtc', '<cmd>GenerateTOC<cr>', mode = 'n', desc = '[m]arkdown [t]OC [c]reate' },
+      { '<leader>mtd', '<cmd>DeleteTOC<cr>', mode = 'n', desc = '[m]arkdown [T]OC [d]elete' },
+    },
+  },
 }
