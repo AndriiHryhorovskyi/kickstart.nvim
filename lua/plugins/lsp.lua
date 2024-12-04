@@ -247,7 +247,7 @@ return {
         'xmlformatter',
 
         -- Linters
-        'eslint_d',
+        'eslint-lsp',
         'htmlhint',
         'stylelint',
         'sqlfluff',

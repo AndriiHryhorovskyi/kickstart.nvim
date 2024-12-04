@@ -6,8 +6,8 @@ return {
     config = function()
       local lint = require 'lint'
       lint.linters_by_ft = vim.tbl_deep_extend('force', lint.linters_by_ft or {}, {
-        javascript = { 'eslint_d' },
-        typescript = { 'eslint_d' },
+        javascript = {},
+        typescript = {},
         markdown = {},
         html = { 'htmlhint' },
         css = { 'stylelint' },
