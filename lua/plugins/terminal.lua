@@ -67,7 +67,7 @@ return {
         mode = 'n',
         desc = '[T]erminal [O]pen toggle all',
       },
-      { '<leader>sT', '<CMD>TermSelect<CR>', mode = 'n', desc = '[s]earch [T]ermianl' },
+      { '<leader>Tl', '<CMD>TermSelect<CR>', mode = 'n', desc = '[T]erminal [l]ist' },
       {
         '<leader>Ts',
         function()
