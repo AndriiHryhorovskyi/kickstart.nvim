@@ -1,3 +1,8 @@
+local keysDoc = require 'which-key'
+keysDoc.add {
+  { '<leader>cT',  mode = 'n', group = '[c]ode [T]ask' },
+}
+
 return {
   'stevearc/overseer.nvim',
   opts = {
@@ -7,26 +12,26 @@ return {
   },
   keys = {
     {
-      '<leader>cto',
+      '<leader>cTo',
       function()
         require('overseer').toggle { enter = true }
       end,
       mode = 'n',
-      desc = '[c]ode [t]ask panel [o]pen toggle',
+      desc = '[c]ode [T]ask panel [o]pen toggle',
     },
     {
-      '<leader>ctl',
+      '<leader>cTl',
       function()
         require('overseer').run_template()
       end,
       mode = 'n',
-      desc = '[c]ode [t]ask [l]ist',
+      desc = '[c]ode [T]ask [l]ist',
     },
     {
-      '<leader>ctn',
+      '<leader>cTn',
       '<CMD>OverseerBuild<CR>',
       mode = 'n',
-      desc = '[c]ode [t]ask [n]ew',
+      desc = '[c]ode [T]ask [n]ew',
     },
   },
 }
