@@ -49,6 +49,7 @@ return {
     opts = {
       insert_mappings = false,
       terminal_mappings = false,
+      hide_numbers = false,
     },
     keys = {
       {
