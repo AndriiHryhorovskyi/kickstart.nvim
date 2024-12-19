@@ -6,6 +6,12 @@
 -- be extended to other languages as well. That's why it's called
 -- kickstart.nvim and not kitchen-sink.nvim ;)
 
+vim.fn.sign_define('DapBreakpoint', { text = 'B', texthl = 'ffff00', linehl = '', numhl = '' })
+vim.fn.sign_define('DapBreakpointCondition', { text = 'C', texthl = 'ffff00', linehl = '', numhl = '' })
+vim.fn.sign_define('DapLogPoint', { text = 'L', texthl = '', linehl = 'ffff00', numhl = '' })
+vim.fn.sign_define('DapStopped', { text = '→', texthl = '', linehl = 'ffff00', numhl = '' })
+vim.fn.sign_define('DapBreakpointRejected', { text = 'R', texthl = 'ffff00', linehl = '', numhl = '' })
+
 return {
   'mfussenegger/nvim-dap',
   dependencies = {
