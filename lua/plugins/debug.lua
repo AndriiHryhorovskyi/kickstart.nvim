@@ -80,7 +80,7 @@ return {
       },
       layouts = {
         { elements = { 'scopes', 'stacks', 'breakpoints', 'watches' }, position = 'right', size = 0.3 },
-        { elements = { 'repl' }, position = 'bottom', size = 0.3 },
+        { elements = { 'repl', 'console' }, position = 'bottom', size = 0.3 },
       },
     }
 
