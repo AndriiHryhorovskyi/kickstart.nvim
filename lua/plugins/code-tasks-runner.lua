@@ -1,8 +1,3 @@
-local keysDoc = require 'which-key'
-keysDoc.add {
-  { '<leader>cT',  mode = 'n', group = '[c]ode [T]ask' },
-}
-
 return {
   'stevearc/overseer.nvim',
   opts = {

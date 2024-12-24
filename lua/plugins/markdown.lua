@@ -1,10 +1,3 @@
-local keysDoc = require 'which-key'
-keysDoc.add {
-  { '<leader>m',  mode = 'n', group = '[m]arkdown' },
-  { '<leader>mt',  mode = 'n', group = '[m]arkdown [t]oc ' },
-  { '<leader>mc',  mode = 'n', group = '[m]arkdown [c]ode ' },
-}
-
 return {
   {
     'iamcco/markdown-preview.nvim',
