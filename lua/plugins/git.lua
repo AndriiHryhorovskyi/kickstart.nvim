@@ -80,9 +80,11 @@ return {
     opts = {
       -- "ascii"   is the graph the git CLI generates
       -- "unicode" is the graph like https://github.com/rbong/vim-flog
-      graph_style = 'unicode',
+      -- "kitty"   is the graph like https://github.com/isakbm/gitgraph.nvim - use https://github.com/rbong/flog-symbols if you don't use Kitty
+      graph_style = 'kitty',
       -- Disable line numbers and relative line numbers
       disable_line_numbers = false,
+      disable_relative_line_numbers = false,
       mappings = {
         status = {
           ['<c-S>'] = 'StageAll',
