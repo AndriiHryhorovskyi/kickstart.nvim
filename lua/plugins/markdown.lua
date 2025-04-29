@@ -5,7 +5,7 @@ return {
     init = function()
       vim.g.mkdp_filetypes = { 'markdown' }
     end,
-    ft = { 'markdown' },
+    ft = { 'markdown', 'Avante' },
     keys = {
       { '<leader>mp', '<cmd>MarkdownPreviewToggle<cr>', mode = 'n', desc = '[m]arkdown [p]review toggle' },
     },
@@ -17,7 +17,7 @@ return {
     opts = {
       enabled = true,
       render_modes = true,
-      file_types = { 'markdown' },
+      file_types = { 'markdown', 'Avante' },
       debounce = 500,
       quote = { repeat_linebreak = true },
       win_options = {
