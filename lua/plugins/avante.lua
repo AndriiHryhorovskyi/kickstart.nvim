@@ -110,6 +110,18 @@ return {
       }
     end,
   },
+  keys = {
+    {
+      '<leader>ccC',
+      function()
+        vim.cmd 'AvanteClear history'
+        vim.cmd 'AvanteClear memory'
+        vim.cmd 'AvanteClear cache'
+      end,
+      mode = 'n',
+      desc = 'clear history',
+    },
+  },
   build = 'make',
   dependencies = {
     'nvim-treesitter/nvim-treesitter',
