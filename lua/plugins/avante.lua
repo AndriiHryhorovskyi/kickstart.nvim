@@ -66,6 +66,25 @@ return {
       width = 40,
     },
     hints = { enabled = false },
+    mappings = {
+      ask = '<leader>cca',
+      edit = '<leader>cce',
+      refresh = '<leader>ccr',
+      focus = '<leader>ccf',
+      stop = '<leader>ccS',
+      select_model = '<leader>cc?', -- Select model command
+      select_history = '<leader>cch', -- Select history command
+      files = {
+        add_current = '<leader>ccA', -- Add current buffer to selected files
+        add_all_buffers = '<leader>ccB', -- Add all buffer files to selected files
+      },
+      toggle = {
+        default = '<leader>cct',
+        debug = '<leader>ccd',
+        hint = '<leader>cch',
+        suggestion = '<leader>ccs',
+      },
+    },
     -- comment it and disable Neovim MCP to use avante's built-in tools to save tokens
     -- disabled_tools = {
     --   'list_files',
