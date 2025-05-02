@@ -3,7 +3,8 @@ return {
   event = 'VeryLazy',
   version = false, -- Never set this value to "*"! Never!
   opts = {
-    provider = 'gemini20',
+    provider = 'gemini',
+    mode = 'agentic',
     auto_suggestions_provider = 'llama4',
     cursor_applying_provider = 'llama33',
     behaviour = {
@@ -32,8 +33,11 @@ return {
       prompt = 'Based on the two reference outputs below, generate a response that incorporates elements from both but reflects your own judgment and unique perspective. Do not provide any explanation, just give the response directly. Reference Output 1: [{{provider1_output}}], Reference Output 2: [{{provider2_output}}]',
       timeout = 60000, -- Timeout in milliseconds
     },
+    gemini = {
+      api_key_name = 'GOOGLE_API_API_KEY',
+    },
     vendors = {
-      gemini20 = {
+      gemini20_flash_exp = {
         __inherited_from = 'openai',
         endpoint = 'https://openrouter.ai/api/v1/',
         api_key_name = 'OPENROUTER_API_KEY',
