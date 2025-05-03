@@ -37,7 +37,7 @@ return {
   build = 'bundled_build.lua', -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
   opts = {
     use_bundled_binary = true,
-    auto_approve = true,
+    auto_approve = false,
   },
   config = function(_, opts)
     create_default_config()
