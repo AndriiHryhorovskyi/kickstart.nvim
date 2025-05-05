@@ -39,7 +39,7 @@ return {
       {
         '<leader>cps',
         function()
-          require('package-info').toggle()
+          require('package-info').toggle { force = true }
         end,
         desc = '[c]ode [p]ackage [s]how version toggle',
         silent = true,
