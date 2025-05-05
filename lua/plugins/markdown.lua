@@ -3,7 +3,7 @@ return {
     'iamcco/markdown-preview.nvim',
     build = 'cd app && npm install',
     init = function()
-      vim.g.mkdp_filetypes = { 'markdown' }
+      vim.g.mkdp_filetypes = { 'markdown', 'Avante' }
     end,
     ft = { 'markdown', 'Avante' },
     keys = {
@@ -13,7 +13,7 @@ return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
-    ft = { 'markdown' },
+    ft = { 'markdown', 'Avante' },
     opts = {
       enabled = true,
       render_modes = true,
