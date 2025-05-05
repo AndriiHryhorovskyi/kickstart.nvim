@@ -37,13 +37,6 @@ return {
       api_key_name = 'GOOGLE_API_API_KEY',
     },
     vendors = {
-      gemini20_flash_exp = {
-        __inherited_from = 'openai',
-        endpoint = 'https://openrouter.ai/api/v1/',
-        api_key_name = 'OPENROUTER_API_KEY',
-        model = 'google/gemini-2.0-flash-exp:free',
-        max_completion_tokens = 8192,
-      },
       llama4 = {
         __inherited_from = 'openai',
         api_key_name = 'GROQ_API_KEY',
@@ -90,18 +83,18 @@ return {
       },
     },
     -- comment it and disable Neovim MCP to use avante's built-in tools to save tokens
-    -- disabled_tools = {
-    --   'list_files',
-    --   'search_files',
-    --   'read_file',
-    --   'create_file',
-    --   'rename_file',
-    --   'delete_file',
-    --   'create_dir',
-    --   'rename_dir',
-    --   'delete_dir',
-    --   'bash',
-    -- },
+    disabled_tools = {
+      'list_files',
+      'search_files',
+      'read_file',
+      'create_file',
+      'rename_file',
+      'delete_file',
+      'create_dir',
+      'rename_dir',
+      'delete_dir',
+      'bash',
+    },
 
     system_prompt = function()
       local hub = require('mcphub').get_hub_instance()
@@ -119,7 +112,6 @@ return {
       '<leader>ccC',
       function()
         vim.cmd 'AvanteClear history'
-        vim.cmd 'AvanteClear memory'
         vim.cmd 'AvanteClear cache'
       end,
       mode = 'n',

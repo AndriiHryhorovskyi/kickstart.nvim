@@ -38,6 +38,11 @@ return {
   opts = {
     use_bundled_binary = true,
     auto_approve = false,
+    extensions = {
+      avante = {
+        make_slash_commands = true, -- make /slash commands from MCP server prompts
+      },
+    },
   },
   config = function(_, opts)
     create_default_config()
