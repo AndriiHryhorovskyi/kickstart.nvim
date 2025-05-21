@@ -6,9 +6,10 @@ return {
     provider = 'gemini',
     mode = 'agentic',
     auto_suggestions_provider = 'llama4',
-    cursor_applying_provider = 'llama33',
+    cursor_applying_provider = 'llama4',
     behaviour = {
       enable_cursor_planning_mode = true,
+      cursor_planning_mode = true,
       auto_suggestions = false, -- Experimental stage
       auto_set_highlight_group = true,
       auto_set_keymaps = true,
