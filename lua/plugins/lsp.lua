@@ -255,6 +255,7 @@ return {
         'jsonlint',
         'yamllint',
         'shellcheck',
+        'sonarlint-language-server',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -271,5 +272,33 @@ return {
         },
       }
     end,
+  },
+  {
+    url = 'https://gitlab.com/schrieveslaach/sonarlint.nvim',
+    dependencies = { 'neovim/nvim-lspconfig', 'lewis6991/gitsigns.nvim' },
+    opts = {
+      server = {
+        cmd = {
+          'sonarlint-language-server',
+          -- Ensure that sonarlint-language-server uses stdio channel
+          '-stdio',
+          '-analyzers',
+          -- paths to the analyzers you need, using those for python and java in this example
+          vim.fn.expand '~/.local/share/nvim/mason/share/sonarlint-analyzers/sonarcfamily.jar',
+          vim.fn.expand '~/.local/share/nvim/mason/share/sonarlint-analyzers/sonarhtml.jar',
+          vim.fn.expand '~/.local/share/nvim/mason/share/sonarlint-analyzers/sonarjs.jar',
+          vim.fn.expand '~/.local/share/nvim/mason/share/sonarlint-analyzers/sonartext.jar',
+          vim.fn.expand '~/.local/share/nvim/mason/share/sonarlint-analyzers/sonarxml.jar',
+        },
+      },
+      filetypes = {
+        'dockerfile',
+        'javascript',
+        'typescript',
+        'html',
+        'xml',
+        'json',
+      },
+    },
   },
 }
