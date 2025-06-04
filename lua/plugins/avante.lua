@@ -34,30 +34,37 @@ return {
       prompt = 'Based on the two reference outputs below, generate a response that incorporates elements from both but reflects your own judgment and unique perspective. Do not provide any explanation, just give the response directly. Reference Output 1: [{{provider1_output}}], Reference Output 2: [{{provider2_output}}]',
       timeout = 60000, -- Timeout in milliseconds
     },
-    gemini = {
-      api_key_name = 'GOOGLE_API_API_KEY',
-    },
-    vendors = {
+    providers = {
+      gemini = {
+        api_key_name = 'GOOGLE_API_API_KEY',
+        model = 'gemini-2.5-flash-preview-05-20',
+      },
       llama4 = {
         __inherited_from = 'openai',
         api_key_name = 'GROQ_API_KEY',
         endpoint = 'https://api.groq.com/openai/v1/',
         model = 'meta-llama/llama-4-maverick-17b-128e-instruct',
-        max_completion_tokens = 8192,
+        extra_request_body = {
+          max_completion_tokens = 8192,
+        },
       },
       llama33 = {
         __inherited_from = 'openai',
         api_key_name = 'GROQ_API_KEY',
         endpoint = 'https://api.groq.com/openai/v1/',
         model = 'llama-3.3-70b-versatile',
-        max_completion_tokens = 32768, -- remember to increase this value, otherwise it will stop generating halfway
+        extra_request_body = {
+          max_completion_tokens = 32768,
+        },
       },
       deepseek_llama3 = {
         __inherited_from = 'openai',
         api_key_name = 'GROQ_API_KEY',
         endpoint = 'https://api.groq.com/openai/v1/',
         model = 'deepseek-r1-distill-llama-70b',
-        max_tokens = 32768,
+        extra_request_body = {
+          max_completion_tokens = 32768,
+        },
       },
     },
     windows = {
