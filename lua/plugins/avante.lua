@@ -14,6 +14,7 @@ return {
       auto_set_highlight_group = true,
       auto_set_keymaps = true,
       auto_apply_diff_after_generation = false,
+      auto_approve_tool_permissions = false,
       minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
       enable_token_counting = true, -- Whether to enable token counting. Default to true.
       enable_claude_text_editor_tool_mode = false, -- Whether to enable Claude Text Editor Tool Mode.
@@ -45,7 +46,7 @@ return {
         endpoint = 'https://api.groq.com/openai/v1/',
         model = 'meta-llama/llama-4-maverick-17b-128e-instruct',
         extra_request_body = {
-          max_completion_tokens = 8192,
+          max_completion_tokens = 6000,
         },
       },
       llama33 = {
@@ -54,7 +55,7 @@ return {
         endpoint = 'https://api.groq.com/openai/v1/',
         model = 'llama-3.3-70b-versatile',
         extra_request_body = {
-          max_completion_tokens = 32768,
+          max_completion_tokens = 6000,
         },
       },
       deepseek_llama3 = {
@@ -63,7 +64,7 @@ return {
         endpoint = 'https://api.groq.com/openai/v1/',
         model = 'deepseek-r1-distill-llama-70b',
         extra_request_body = {
-          max_completion_tokens = 32768,
+          max_completion_tokens = 6000,
         },
       },
     },
