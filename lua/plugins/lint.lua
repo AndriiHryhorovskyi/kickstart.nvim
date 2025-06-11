@@ -17,7 +17,7 @@ return {
         sql = { 'sqlfluff' },
         dockerfile = { 'hadolint' },
         json = { 'jsonlint' },
-        yaml = { 'yamllint' },
+        yaml = {},
         text = {},
         sh = { 'shellcheck' },
         bash = { 'shellcheck' },

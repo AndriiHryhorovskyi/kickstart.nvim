@@ -253,7 +253,6 @@ return {
         'sqlfluff',
         'hadolint',
         'jsonlint',
-        'yamllint',
         'shellcheck',
         'sonarlint-language-server',
       })
