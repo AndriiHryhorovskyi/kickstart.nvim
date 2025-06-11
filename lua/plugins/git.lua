@@ -209,11 +209,11 @@ return {
         desc = '[G]it [l]og a [B]ranch',
       },
       {
-        '<leader>gL',
+        '<leader>gla',
         function()
           require('neogit').action('log', 'log_all_references', { '--graph', '--decorate' })()
         end,
-        desc = '[G]it [L]og all branches',
+        desc = '[G]it [l]og [a]ll branches',
       },
     },
   },
