@@ -6,7 +6,7 @@ return {
     provider = 'gemini',
     mode = 'agentic',
     auto_suggestions_provider = 'llama4',
-    cursor_applying_provider = 'llama4',
+    cursor_applying_provider = 'llama33',
     behaviour = {
       enable_cursor_planning_mode = true,
       cursor_planning_mode = true,
