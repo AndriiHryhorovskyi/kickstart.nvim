@@ -79,4 +79,19 @@ return {
       },
     },
   },
+  {
+    'xb-bx/editable-term.nvim',
+    config = true,
+    opts = {
+      promts = {
+        ['%$ '] = {
+          keybinds = {
+            clear_current_line = '<esc>ddi',
+            goto_line_start = '<esc>0i',
+            forward_char = '<esc>la',
+          },
+        },
+      },
+    },
+  },
 }
