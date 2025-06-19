@@ -92,18 +92,18 @@ return {
       },
     },
     -- comment it and disable Neovim MCP to use avante's built-in tools to save tokens
-    disabled_tools = {
-      'list_files',
-      'search_files',
-      'read_file',
-      'create_file',
-      'rename_file',
-      'delete_file',
-      'create_dir',
-      'rename_dir',
-      'delete_dir',
-      'bash',
-    },
+    -- disabled_tools = {
+    --   'list_files',
+    --   'search_files',
+    --   'read_file',
+    --   'create_file',
+    --   'rename_file',
+    --   'delete_file',
+    --   'create_dir',
+    --   'rename_dir',
+    --   'delete_dir',
+    --   'bash',
+    -- },
 
     system_prompt = function()
       local hub = require('mcphub').get_hub_instance()

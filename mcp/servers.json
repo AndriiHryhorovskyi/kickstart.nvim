@@ -1,46 +1,52 @@
 {
+  "nativeMCPServers": {
+    "neovim": {
+      "disabled": false,
+      "disabled_tools": [
+        "replace_in_file",
+        "delete_item",
+        "execute_command",
+        "read_file",
+        "list_directory",
+        "move_item",
+        "write_file"
+      ],
+      "custom_instructions": {
+        "disabled": false
+      }
+    },
+    "mcphub": {
+      "disabled": false,
+      "custom_instructions": {
+        "disabled": false
+      }
+    }
+  },
   "mcpServers": {
     "context7": {
-      "command": "npx",
       "args": [
         "-y",
         "@upstash/context7-mcp@latest"
       ],
-      "disabled": false
+      "disabled": false,
+      "command": "npx"
     },
     "github.com/zcaceres/fetch-mcp": {
-      "command": "node",
       "args": [
         "/home/andrii/.config/nvim/mcp/servers/fetch-mcp/dist/index.js"
       ],
-      "disabled": true
+      "disabled": true,
+      "command": "node"
     },
     "sequentialthinking": {
-      "command": "docker",
       "args": [
         "run",
         "--rm",
         "-i",
         "mcp/sequentialthinking"
       ],
-      "disabled": true
-    }
-  },
-  "nativeMCPServers": {
-    "mcphub": {
-      "disabled": false,
-      "custom_instructions": {
-        "disabled": false
-      }
-    },
-    "neovim": {
-      "custom_instructions": {
-        "disabled": false
-      },
-      "disabled": false,
-      "disabled_tools": [
-        "replace_in_file"
-      ]
+      "disabled": true,
+      "command": "docker"
     }
   }
 }
