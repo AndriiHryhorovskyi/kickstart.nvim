@@ -68,6 +68,10 @@ return {
       prompt = 'Based on the two reference outputs below, generate a response that incorporates elements from both but reflects your own judgment and unique perspective. Do not provide any explanation, just give the response directly. Reference Output 1: [{{provider1_output}}], Reference Output 2: [{{provider2_output}}]',
       timeout = 60000, -- Timeout in milliseconds
     },
+    web_search_engine = {
+      provider = 'tavily', -- tavily, serpapi, searchapi, google, kagi, brave, or searxng
+      proxy = nil, -- proxy support, e.g., http://127.0.0.1:7890
+    },
     windows = {
       width = 40,
     },
