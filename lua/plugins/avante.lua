@@ -1,3 +1,20 @@
+local getCodeReviewPrompt = require 'prompts.code-review'
+
+-- prefil edit window with common scenarios to avoid repeating query and submit immediately
+local prefill_edit_window = function(request)
+  require('avante.api').edit()
+  local code_bufnr = vim.api.nvim_get_current_buf()
+  local code_winid = vim.api.nvim_get_current_win()
+  if code_bufnr == nil or code_winid == nil then
+    return
+  end
+  vim.api.nvim_buf_set_lines(code_bufnr, 0, -1, false, { request })
+  -- Optionally set the cursor position to the end of the input
+  vim.api.nvim_win_set_cursor(code_winid, { 1, #request + 1 })
+  -- Simulate Ctrl+S keypress to submit
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-s>', true, true, true), 'v', true)
+end
+
 return {
   'yetone/avante.nvim',
   event = 'VeryLazy',
@@ -119,6 +136,33 @@ return {
         require('mcphub.extensions.avante').mcp_tool(),
       }
     end,
+
+    slash_commands = {
+      {
+        name = 'explain',
+        description = 'Explain code',
+        details = 'Explain code from selected files',
+        callback = function(sidebar, _, cb)
+          local query = 'Explain code from the files'
+          sidebar.handle_submit(query)
+          if cb then
+            cb(query)
+          end
+        end,
+      },
+      {
+        name = 'project_overview',
+        description = 'Explain project',
+        details = 'Explain how project organized and how it works',
+        callback = function(sidebar, _, cb)
+          local query = 'Make the project overview'
+          sidebar.handle_submit(query)
+          if cb then
+            cb(query)
+          end
+        end,
+      },
+    },
   },
   keys = {
     {
@@ -129,6 +173,79 @@ return {
       end,
       mode = 'n',
       desc = 'clear history',
+    },
+    {
+      '<leader>ccpe',
+      function()
+        local prompt = 'Explain the code. You can use context 7.'
+        require('avante.api').ask { question = prompt }
+      end,
+      mode = { 'n', 'v' },
+      desc = 'Explain code',
+    },
+    {
+      '<leader>ccpC',
+      function()
+        local prompt =
+          'Based on Conventional Commit specification suggest me appropriate commit message for staged changes. **DO NOT ANY EXTRA TEXT, BE CONCISE**'
+        require('avante.api').ask { question = prompt }
+      end,
+      mode = { 'n' },
+      desc = 'Get commit message',
+    },
+    {
+      '<leader>ccpc',
+      function()
+        local prompt = 'Check code for corner cases'
+        require('avante.api').ask { question = prompt }
+      end,
+      mode = { 'v' },
+      desc = 'Check for corner cases',
+    },
+    {
+      '<leader>ccpt',
+      function()
+        local prompt = 'Add tests for the code'
+        require('avante.api').ask { question = prompt }
+      end,
+      mode = { 'v' },
+      desc = 'Add tests',
+    },
+    {
+      '<leader>ccpr',
+      function()
+        local prompt = getCodeReviewPrompt('Check the selected code and give me code review', 'The selected code')
+        require('avante.api').ask { question = prompt }
+      end,
+      mode = { 'v' },
+      desc = 'Code review',
+    },
+    {
+      '<leader>ccpR',
+      function()
+        local prompt = getCodeReviewPrompt('Give me code review of staged changes', '@codebase')
+        require('avante.api').ask { question = prompt, new_chat = true }
+      end,
+      mode = { 'n' },
+      desc = 'Code review of staged changes',
+    },
+    {
+      '<leader>ccpT',
+      function()
+        local prompt = 'Create types for the code'
+        require('avante.api').ask { question = prompt }
+      end,
+      mode = { 'v' },
+      desc = 'Create typings',
+    },
+    {
+      '<leader>ccpg',
+      function()
+        local prompt = 'Fix grammar'
+        prefill_edit_window(prompt)
+      end,
+      mode = { 'v' },
+      desc = 'Grammar correction',
     },
   },
   build = 'make',

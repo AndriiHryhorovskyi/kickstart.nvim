@@ -17,6 +17,7 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>ct', mode = 'n', group = '[c]ode [t]test' },
       { '<leader>cT', mode = 'n', group = '[c]ode [T]ask' },
       { '<leader>cc', mode = { 'n', 'v' }, group = '[c]ode [c]ompanion' },
+      { '<leader>ccp', mode = { 'n', 'v' }, group = '[p]rompts' },
       { '<leader>m', mode = 'n', group = '[m]arkdown' },
       { '<leader>mt', mode = 'n', group = '[m]arkdown [t]oc ' },
       { '<leader>mc', mode = 'n', group = '[m]arkdown [c]ode ' },
