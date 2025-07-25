@@ -1,29 +1,27 @@
 {
   "mcpServers": {
     "context7": {
-      "command": "npx",
       "args": [
         "-y",
         "@upstash/context7-mcp@latest"
       ],
+      "command": "npx",
       "disabled": false
     },
     "github.com/zcaceres/fetch-mcp": {
-      "command": "node",
       "args": [
         "/home/andrii/.config/nvim/mcp/servers/fetch-mcp/dist/index.js"
       ],
-      "disabled": true
+      "command": "node",
+      "disabled": false
     },
     "sequentialthinking": {
-      "command": "docker",
       "args": [
-        "run",
-        "--rm",
-        "-i",
-        "mcp/sequentialthinking"
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
       ],
-      "disabled": true
+      "command": "npx",
+      "disabled": false
     }
   },
   "nativeMCPServers": {
@@ -31,18 +29,22 @@
       "custom_instructions": {
         "disabled": false
       },
+      "disabled": false,
       "disabled_prompts": [
         "create_native_server"
       ],
+      "disabled_resources": [
+        "mcphub://native_server_guide"
+      ],
       "disabled_tools": [
         "toggle_mcp_server"
-      ],
-      "disabled": false
+      ]
     },
     "neovim": {
       "custom_instructions": {
         "disabled": false
       },
+      "disabled": false,
       "disabled_tools": [
         "replace_in_file",
         "delete_item",
@@ -51,8 +53,7 @@
         "list_directory",
         "move_item",
         "write_file"
-      ],
-      "disabled": false
+      ]
     }
   }
 }
