@@ -20,10 +20,10 @@ return {
   event = 'VeryLazy',
   version = false, -- Never set this value to "*"! Never!
   opts = {
-    provider = 'gemini',
+    provider = 'gemini_latest_pro',
     mode = 'agentic',
     auto_suggestions_provider = 'llama4',
-    cursor_applying_provider = 'llama33',
+    cursor_applying_provider = 'gemini_for_diffs',
     behaviour = {
       enable_cursor_planning_mode = true,
       cursor_planning_mode = true,
@@ -37,9 +37,25 @@ return {
       enable_claude_text_editor_tool_mode = false, -- Whether to enable Claude Text Editor Tool Mode.
     },
     providers = {
-      gemini = {
+      gemini_latest_pro = {
+        __inherited_from = 'gemini',
+        api_key_name = 'GOOGLE_API_API_KEY',
+        model = 'gemini-2.5-pro',
+      },
+      gemini_latest_flash = {
+        __inherited_from = 'gemini',
+        api_key_name = 'GOOGLE_API_API_KEY',
+        model = 'gemini-2.5-flash',
+      },
+      gemini_latest_flash_preview = {
+        __inherited_from = 'gemini',
         api_key_name = 'GOOGLE_API_API_KEY',
         model = 'gemini-2.5-flash-preview-05-20',
+      },
+      gemini_for_diffs = {
+        __inherited_from = 'gemini',
+        api_key_name = 'GOOGLE_API_API_KEY',
+        model = 'gemini-2.0-flash-lite',
       },
       llama4 = {
         __inherited_from = 'openai',
