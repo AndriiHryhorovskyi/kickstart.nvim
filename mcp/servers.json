@@ -13,7 +13,7 @@
         "/home/andrii/.config/nvim/mcp/servers/fetch-mcp/dist/index.js"
       ],
       "command": "node",
-      "disabled": false
+      "disabled": true
     },
     "sequentialthinking": {
       "args": [
@@ -21,7 +21,7 @@
         "@modelcontextprotocol/server-sequential-thinking"
       ],
       "command": "npx",
-      "disabled": false
+      "disabled": true
     }
   },
   "nativeMCPServers": {
