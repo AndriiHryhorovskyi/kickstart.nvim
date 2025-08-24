@@ -115,6 +115,7 @@ return {
     },
     mappings = {
       ask = '<leader>cca',
+      full_view_ask = '<leader>ccA',
       edit = '<leader>cce',
       refresh = '<leader>ccr',
       focus = '<leader>ccf',
@@ -128,7 +129,6 @@ return {
       toggle = {
         default = '<leader>cct',
         debug = '<leader>ccd',
-        hint = '<leader>cch',
         suggestion = '<leader>ccs',
       },
     },
