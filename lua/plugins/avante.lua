@@ -108,7 +108,10 @@ return {
     windows = {
       width = 40,
     },
-    hints = { enabled = false },
+    selection = {
+      enabled = true,
+      hint_display = 'none',
+    },
     mappings = {
       ask = '<leader>cca',
       edit = '<leader>cce',
