@@ -107,6 +107,7 @@ return {
     },
     windows = {
       width = 40,
+      input = { height = 12 },
     },
     selection = {
       enabled = true,
