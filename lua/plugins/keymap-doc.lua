@@ -12,7 +12,7 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>h', mode = { 'n', 'v' }, group = 'git [h]unk actions' },
       { '<leader>s', mode = 'n', group = 'Lazy [s]earch' },
       { '<leader>w', mode = 'n', group = '[w]orkspace' },
-      { '<leader>T', mode = 'n', group = '[T]erminal' },
+      { '<leader>T', mode = { 'n', 'v' }, group = '[T]erminal' },
       { '<leader>c', mode = 'n', group = '[c]ode' },
       { '<leader>ct', mode = 'n', group = '[c]ode [t]test' },
       { '<leader>cT', mode = 'n', group = '[c]ode [T]ask' },
