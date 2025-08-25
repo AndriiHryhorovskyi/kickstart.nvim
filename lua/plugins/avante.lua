@@ -241,9 +241,9 @@ return {
       desc = 'Code review',
     },
     {
-      '<leader>ccpR',
+      '<leader>ccpr',
       function()
-        local prompt = getCodeReviewPrompt('Give me code review of staged changes', '@codebase')
+        local prompt = getCodeReviewPrompt('Give me code review of staged changes', 'Check output of "git diff --staged" to get the changes')
         require('avante.api').ask { question = prompt, new_chat = true }
       end,
       mode = { 'n' },
