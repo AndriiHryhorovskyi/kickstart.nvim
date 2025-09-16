@@ -4,6 +4,7 @@ return {
     build = 'cd app && npm install',
     init = function()
       vim.g.mkdp_filetypes = { 'markdown', 'Avante' }
+      vim.g.mkdp_auto_close = 0
     end,
     ft = { 'markdown', 'Avante' },
     keys = {
