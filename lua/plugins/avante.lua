@@ -20,7 +20,7 @@ return {
   event = 'VeryLazy',
   version = false, -- Never set this value to "*"! Never!
   opts = {
-    provider = 'gemini_latest_pro',
+    provider = 'gemini-cli',
     mode = 'agentic',
     auto_suggestions_provider = 'llama4',
     cursor_applying_provider = 'gemini_for_diffs',
@@ -82,6 +82,16 @@ return {
         model = 'deepseek-r1-distill-llama-70b',
         extra_request_body = {
           max_completion_tokens = 6000,
+        },
+      },
+    },
+    acp_providers = {
+      ['gemini-cli'] = {
+        command = 'gemini',
+        args = { '--experimental-acp' },
+        env = {
+          NODE_NO_WARNINGS = '1',
+          GEMINI_API_KEY = os.getenv 'GEMINI_API_KEY',
         },
       },
     },
