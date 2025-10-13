@@ -35,6 +35,7 @@ return {
       minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
       enable_token_counting = true, -- Whether to enable token counting. Default to true.
       enable_claude_text_editor_tool_mode = false, -- Whether to enable Claude Text Editor Tool Mode.
+      auto_add_current_file = false
     },
     providers = {
       gemini_latest_pro = {
