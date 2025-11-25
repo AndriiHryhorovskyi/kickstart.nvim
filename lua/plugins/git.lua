@@ -215,6 +215,29 @@ return {
         end,
         desc = '[G]it [l]og [a]ll branches',
       },
+      {
+        '<leader>gdw',
+        function()
+          vim.cmd('silent DiffviewOpen')
+        end,
+        desc = '[G]it [d]iff [w]orktree',
+      },
+      {
+        '<leader>gdf',
+        function()
+          local file = vim.fn.expand '%'
+          vim.cmd('silent DiffviewOpen -- ' .. file)
+          vim.cmd 'silent DiffviewToggleFiles'
+        end,
+        desc = '[G]it [d]iff current [f]ile',
+      },
+      {
+        '<leader>gdc',
+        function()
+          vim.cmd 'silent DiffviewClose'
+        end,
+        desc = '[G]it [d]iff [c]lose',
+      },
     },
   },
 }
