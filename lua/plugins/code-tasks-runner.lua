@@ -17,16 +17,10 @@ return {
     {
       '<leader>cTl',
       function()
-        require('overseer').run_template()
+        require('overseer').run_task {}
       end,
       mode = 'n',
       desc = '[c]ode [T]ask [l]ist',
-    },
-    {
-      '<leader>cTn',
-      '<CMD>OverseerBuild<CR>',
-      mode = 'n',
-      desc = '[c]ode [T]ask [n]ew',
     },
   },
 }
