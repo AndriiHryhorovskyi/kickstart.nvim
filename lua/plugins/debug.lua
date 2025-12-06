@@ -14,6 +14,7 @@ vim.fn.sign_define('DapBreakpointRejected', { text = 'R', texthl = 'ffff00', lin
 
 return {
   'mfussenegger/nvim-dap',
+  commit = '7ff6936010b7222fea2caea0f67ed77f1b7c60dd',
   dependencies = {
     'nvim-lua/plenary.nvim',
     -- Creates a beautiful debugger UI
