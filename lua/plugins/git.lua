@@ -26,7 +26,7 @@ return {
           if vim.wo.diff then
             vim.cmd.normal { ']h', bang = true }
           else
-            gitsigns.nav_hunk 'next'
+            gitsigns.nav_hunk('next', { target = 'all' })
           end
         end, { desc = 'Jump to next git [h]unk' })
 
@@ -34,7 +34,7 @@ return {
           if vim.wo.diff then
             vim.cmd.normal { '[h', bang = true }
           else
-            gitsigns.nav_hunk 'prev'
+            gitsigns.nav_hunk('prev', { target = 'all' })
           end
         end, { desc = 'Jump to previous git [h]unk' })
 
@@ -218,7 +218,7 @@ return {
       {
         '<leader>gdw',
         function()
-          vim.cmd('silent DiffviewOpen')
+          vim.cmd 'silent DiffviewOpen'
         end,
         desc = '[G]it [d]iff [w]orktree',
       },
