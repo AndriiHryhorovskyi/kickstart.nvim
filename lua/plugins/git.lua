@@ -232,11 +232,11 @@ return {
         desc = '[G]it [d]iff current [f]ile',
       },
       {
-        '<leader>gdc',
+        '<leader>gdq',
         function()
           vim.cmd 'silent DiffviewClose'
         end,
-        desc = '[G]it [d]iff [c]lose',
+        desc = '[G]it [d]iff [q]uit',
       },
     },
   },
