@@ -60,6 +60,8 @@ return {
           i = {
             ['<C-j>'] = require('telescope.actions').preview_scrolling_down,
             ['<C-k>'] = require('telescope.actions').preview_scrolling_up,
+            ['<C-u>'] = false,
+            ['<C-d>'] = false,
             ['<C-s>'] = require('telescope.actions').file_split,
           },
           n = {
