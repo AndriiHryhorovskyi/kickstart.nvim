@@ -255,7 +255,7 @@ return {
         'jsonlint',
         'shellcheck',
       })
-      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+      require('mason-tool-installer').setup { ensure_installed = ensure_installed, auto_update = true, debounce_hours = 8 }
 
       require('mason-lspconfig').setup {
         handlers = {
