@@ -21,9 +21,10 @@ return {
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
+      -- 'pmizio/typescript-tools.nvim',
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
     },
@@ -155,6 +156,7 @@ return {
       --  By default, Neovim doesn't support everything that is in the LSP specification.
       --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
       --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
+
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
@@ -255,20 +257,44 @@ return {
         'jsonlint',
         'shellcheck',
       })
-      require('mason-tool-installer').setup { ensure_installed = ensure_installed, auto_update = true, debounce_hours = 8 }
+      require('mason-tool-installer').setup { ensure_installed = ensure_installed, auto_update = true }
 
-      require('mason-lspconfig').setup {
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for tsserver)
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
-          end,
-        },
-      }
+      vim.lsp.config('*', {
+        capabilities = capabilities,
+      })
+      local function configure(server)
+        if server == '*' then
+          return false
+        end
+        local sopts = servers[server] or {}
+        vim.lsp.config(server, sopts)
+      end
+
+      vim.tbl_filter(configure, vim.tbl_keys(servers))
+
+      require('mason-lspconfig').setup {}
+
+      -- require('typescript-tools').setup {
+      --   capabilities = capabilities,
+      --   settings = {
+      --     separate_diagnostic_server = true,
+      --     expose_as_code_action = 'all',
+      --     complete_function_calls = false,
+      --     tsserver_file_preferences = {
+      --       importModuleSpecifierPreference = 'non-relative',
+      --       includeCompletionsForModuleExports = true,
+      --       quotePreference = 'auto',
+      --       includeInlayParameterNameHints = 'all',
+      --       includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+      --       includeInlayVariableTypeHints = true,
+      --       includeInlayFunctionParameterTypeHints = true,
+      --       includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+      --       includeInlayPropertyDeclarationTypeHints = true,
+      --       includeInlayFunctionLikeReturnTypeHints = true,
+      --       includeInlayEnumMemberValueHints = true,
+      --     },
+      --   },
+      -- }
     end,
   },
 }
