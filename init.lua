@@ -87,6 +87,7 @@ P.S. You can delete this when you're done too. It's your config now! :)
 require 'config.options'
 require 'config.keymaps'
 require 'config.autocommands'
+require 'config.diagnostic'
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
