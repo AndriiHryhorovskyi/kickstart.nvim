@@ -141,6 +141,15 @@ return {
         { name = 'path' },
         { name = 'buffer', keyword_length = 5 },
       },
+      performance = {
+        debounce = 150,
+        throttle = 50,
+        fetching_timeout = 500,
+        filtering_context_budget = 3,
+        confirm_resolve_timeout = 80,
+        async_budget = 1,
+        max_view_entries = 200,
+      },
     }
   end,
 }
