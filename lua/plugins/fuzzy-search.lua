@@ -61,7 +61,7 @@ return {
             ['<C-j>'] = require('telescope.actions').preview_scrolling_down,
             ['<C-k>'] = require('telescope.actions').preview_scrolling_up,
             ['<C-u>'] = false,
-            ['<C-d>'] = false,
+            ['<C-d>'] = require('telescope.actions').delete_buffer,
             ['<C-s>'] = require('telescope.actions').file_split,
           },
           n = {
