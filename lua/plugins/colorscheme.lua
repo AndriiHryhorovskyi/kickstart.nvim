@@ -24,7 +24,10 @@ return { -- You can easily change to a different colorscheme.
       hl.Whitespace = {
         fg = '#b2b8cf',
       }
-
+      hl.SnacksInputTitle = {
+        fg = '#29a4bd', -- TokyoNight FloatTitle cyan
+        bg = colors.bg_dark,
+      }
     end,
   },
   init = function()
